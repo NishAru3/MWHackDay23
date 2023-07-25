@@ -3,26 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Table Tennis Rankings</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Website Title</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Table Tennis Rankings</h1>
-  </header>
-  <main>
-    <table id="rankings-table">
-      <thead>
-        <tr>
-          <th>Rank</th>
-          <th>Name</th>
-          <th>Points</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
-  </main>
+    <div class="row">
+        <div class="column">
+            <div class="container">
+                <input type="text" placeholder="Input 1">
+                <input type="text" placeholder="Input 2">
+                <input type="text" placeholder="Input 3">
+                <input type="text" placeholder="Input 4">
+                <button>Submit</button>
+              </div>
+        </div>
+        <div class="column">
+            <div class="container">
+                <div class="inputs">
+                  <input type="text" placeholder="Input 1">
+                  <input type="text" placeholder="Input 2">
+                  <button id="generateButton">Generate Table</button>
+                </div>
+                <table id="dataTable">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Age</th>
+                      <th>Email</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Random data will be added dynamically using JavaScript -->
+                  </tbody>
+                </table>
+              </div>
+        </div>
+        <div class="column">
+            <div class="container">
+                <h1>Leaderboard</h1>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Rank</th>
+                      <th>Name</th>
+                      <th>Score</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>John Doe</td>
+                      <td>1000</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Jane Smith</td>
+                      <td>900</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Mike Johnson</td>
+                      <td>800</td>
+                    </tr>
+                    <!-- Add more rows for additional leaderboard entries -->
+                  </tbody>
+                </table>
+              </div>
+        </div>
+    </div>
   <script src="script.js"></script>
 </body>
 </html>
