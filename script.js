@@ -188,119 +188,119 @@ function addUser(name){
 
 // DATABASE
 
+// var users = {
+// }
+
 var users = {
+  "Nishanth": {
+      "name": "Nishanth",
+      "wins": 3,
+      "played": 3,
+      "dep": "EDG",
+      "matches": [
+          "3c49e1da-e7d7-4354-882e-081fb3e94d8d",
+          "8308bb35-5855-45ca-b823-05e0abf9d231",
+          "3604629d-3ce5-4253-b0a9-64058dcfec88"
+      ],
+      "rank": 1,
+      "winratio": 1
+  },
+  "Siddhant": {
+      "name": "Siddhant",
+      "wins": 2,
+      "played": 4,
+      "dep": "EDG",
+      "matches": [
+          "3c49e1da-e7d7-4354-882e-081fb3e94d8d",
+          "8308bb35-5855-45ca-b823-05e0abf9d231",
+          "3e69daf0-1879-4c30-ae00-1f935b2eddbc",
+          "dc8ca29d-27d1-40ea-92f2-b92330e048a2"
+      ],
+      "rank": 2,
+      "winratio": 0.5
+  },
+  "Satvik": {
+      "name": "Satvik",
+      "wins": 1,
+      "played": 5,
+      "dep": "EDG",
+      "matches": [
+          "3e69daf0-1879-4c30-ae00-1f935b2eddbc",
+          "dc8ca29d-27d1-40ea-92f2-b92330e048a2",
+          "3604629d-3ce5-4253-b0a9-64058dcfec88",
+          "ce4af0f8-ce8a-49bc-9870-f98894b3f741",
+          "843da9d0-7042-426e-bf32-d913aa5582d9"
+      ],
+      "rank": 3,
+      "winratio": 0.2
+  },
+  "Chen": {
+      "name": "Chen",
+      "wins": 0,
+      "played": 1,
+      "dep": "EDG",
+      "matches": [
+          "ce4af0f8-ce8a-49bc-9870-f98894b3f741"
+      ],
+      "rank": 5,
+      "winratio": 0
+  },
+  "Kunal": {
+      "name": "Kunal",
+      "wins": 1,
+      "played": 1,
+      "dep": "EDG",
+      "matches": [
+          "843da9d0-7042-426e-bf32-d913aa5582d9"
+      ],
+      "rank": 4,
+      "winratio": 1
+  }
 }
 
-// var users = {
-//   "Nishanth": {
-//       "name": "Nishanth",
-//       "wins": 3,
-//       "played": 3,
-//       "dep": "EDG",
-//       "matches": [
-//           "3c49e1da-e7d7-4354-882e-081fb3e94d8d",
-//           "8308bb35-5855-45ca-b823-05e0abf9d231",
-//           "3604629d-3ce5-4253-b0a9-64058dcfec88"
-//       ],
-//       "rank": 1,
-//       "winratio": 1
-//   },
-//   "Siddhant": {
-//       "name": "Siddhant",
-//       "wins": 2,
-//       "played": 4,
-//       "dep": "EDG",
-//       "matches": [
-//           "3c49e1da-e7d7-4354-882e-081fb3e94d8d",
-//           "8308bb35-5855-45ca-b823-05e0abf9d231",
-//           "3e69daf0-1879-4c30-ae00-1f935b2eddbc",
-//           "dc8ca29d-27d1-40ea-92f2-b92330e048a2"
-//       ],
-//       "rank": 2,
-//       "winratio": 0.5
-//   },
-//   "Satvik": {
-//       "name": "Satvik",
-//       "wins": 1,
-//       "played": 5,
-//       "dep": "EDG",
-//       "matches": [
-//           "3e69daf0-1879-4c30-ae00-1f935b2eddbc",
-//           "dc8ca29d-27d1-40ea-92f2-b92330e048a2",
-//           "3604629d-3ce5-4253-b0a9-64058dcfec88",
-//           "ce4af0f8-ce8a-49bc-9870-f98894b3f741",
-//           "843da9d0-7042-426e-bf32-d913aa5582d9"
-//       ],
-//       "rank": 3,
-//       "winratio": 0.2
-//   },
-//   "Chen": {
-//       "name": "Chen",
-//       "wins": 0,
-//       "played": 1,
-//       "dep": "EDG",
-//       "matches": [
-//           "ce4af0f8-ce8a-49bc-9870-f98894b3f741"
-//       ],
-//       "rank": 5,
-//       "winratio": 0
-//   },
-//   "Kunal": {
-//       "name": "Kunal",
-//       "wins": 1,
-//       "played": 1,
-//       "dep": "EDG",
-//       "matches": [
-//           "843da9d0-7042-426e-bf32-d913aa5582d9"
-//       ],
-//       "rank": 4,
-//       "winratio": 1
-//   }
-// }
+// var matches = {}
 
-var matches = {}
-
-// var matches = {
-//   "3c49e1da-e7d7-4354-882e-081fb3e94d8d": {
-//       "winner": "Nishanth",
-//       "loser": "Siddhant",
-//       "wScore": "21",
-//       "lScore": "6"
-//   },
-//   "8308bb35-5855-45ca-b823-05e0abf9d231": {
-//       "winner": "Nishanth",
-//       "loser": "Siddhant",
-//       "wScore": "21",
-//       "lScore": "15"
-//   },
-//   "3e69daf0-1879-4c30-ae00-1f935b2eddbc": {
-//       "winner": "Siddhant",
-//       "loser": "Satvik",
-//       "wScore": "21",
-//       "lScore": "18"
-//   },
-//   "dc8ca29d-27d1-40ea-92f2-b92330e048a2": {
-//       "winner": "Siddhant",
-//       "loser": "Satvik",
-//       "wScore": "21",
-//       "lScore": "16"
-//   },
-//   "3604629d-3ce5-4253-b0a9-64058dcfec88": {
-//       "winner": "Nishanth",
-//       "loser": "Satvik",
-//       "wScore": "21",
-//       "lScore": "5"
-//   },
-//   "ce4af0f8-ce8a-49bc-9870-f98894b3f741": {
-//       "winner": "Satvik",
-//       "loser": "Chen",
-//       "wScore": "21",
-//       "lScore": "17"
-//   },
-//   "843da9d0-7042-426e-bf32-d913aa5582d9": {
-//       "winner": "Kunal",
-//       "loser": "Satvik",
-//       "wScore": "21",
-//       "lScore": "14"
-//   }
-// }
+var matches = {
+  "3c49e1da-e7d7-4354-882e-081fb3e94d8d": {
+      "winner": "Nishanth",
+      "loser": "Siddhant",
+      "wScore": "21",
+      "lScore": "6"
+  },
+  "8308bb35-5855-45ca-b823-05e0abf9d231": {
+      "winner": "Nishanth",
+      "loser": "Siddhant",
+      "wScore": "21",
+      "lScore": "15"
+  },
+  "3e69daf0-1879-4c30-ae00-1f935b2eddbc": {
+      "winner": "Siddhant",
+      "loser": "Satvik",
+      "wScore": "21",
+      "lScore": "18"
+  },
+  "dc8ca29d-27d1-40ea-92f2-b92330e048a2": {
+      "winner": "Siddhant",
+      "loser": "Satvik",
+      "wScore": "21",
+      "lScore": "16"
+  },
+  "3604629d-3ce5-4253-b0a9-64058dcfec88": {
+      "winner": "Nishanth",
+      "loser": "Satvik",
+      "wScore": "21",
+      "lScore": "5"
+  },
+  "ce4af0f8-ce8a-49bc-9870-f98894b3f741": {
+      "winner": "Satvik",
+      "loser": "Chen",
+      "wScore": "21",
+      "lScore": "17"
+  },
+  "843da9d0-7042-426e-bf32-d913aa5582d9": {
+      "winner": "Kunal",
+      "loser": "Satvik",
+      "wScore": "21",
+      "lScore": "14"
+  }
+}
