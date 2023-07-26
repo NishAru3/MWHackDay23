@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MW Table Tennis Co.</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;1,100&family=IBM+Plex+Serif&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MW Table Tennis Co.</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;1,100&family=IBM+Plex+Serif&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
   <div id="header">
     <div class="changeWidth">
@@ -17,51 +21,56 @@
       </h1>
       <div class="top-item">
         <button class="button" id="openMatchModalBtn">Add Match</button>
+        <button class="button" id="randomMatchBtn">Find Random Player</button>
+      </div>
+      <div id="popupBox" class="popup">
+        <span class="closePopup">&times;</span>
+        <div id="popupContent"></div>
       </div>
     </div>
   </div>
   <div id="main">
     <div class="container">
       <div class="centered">
-          <input type="text" id="textField" placeholder="Search Player">
-          <button class="button" id="openSearchModalBtn">Search</button>
+        <input type="text" id="textField" placeholder="Search Player">
+        <button class="button" id="openSearchModalBtn">Search</button>
       </div>
       <table id="dataTable">
-          <thead>
-            <h1>Leaderboard</h1>
-            <tr>
-              <th>Rank</th>
-              <th>Name</th>
-              <th>Wins</th>
-              <th>Total</th>
-              <th>Win %</th>
-            </tr>
-          </thead>
-          <tbody id="leaderbody">
-              
-          </tbody>
+        <thead>
+          <h1>Leaderboard</h1>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Wins</th>
+            <th>Total</th>
+            <th>Win %</th>
+          </tr>
+        </thead>
+        <tbody id="leaderbody">
+
+        </tbody>
       </table>
     </div>
     <div id="matchModal" class="modal">
       <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>Add Match</h2>
-          <div class="padder">
-            <input type="text" id="winner" placeholder="Winner Name">
-            <input type="text" id="winner-score" placeholder="Winner Score">
-          </div>
-          <div class="padder">
-            <input type="text" id="loser" placeholder="Loser Name">
-            <input type="text" id="loser-score" placeholder="Loser Score">
-          </div>
-          <button class="button" id="addMatchBtn">Submit</button>
+        <span class="close">&times;</span>
+        <h2>Add Match</h2>
+        <div class="padder">
+          <input type="text" id="winner" placeholder="Winner Name">
+          <input type="text" id="winner-score" placeholder="Winner Score">
+        </div>
+        <div class="padder">
+          <input type="text" id="loser" placeholder="Loser Name">
+          <input type="text" id="loser-score" placeholder="Loser Score">
+        </div>
+        <button class="button" id="addMatchBtn">Submit</button>
       </div>
     </div>
     <div id="searchModal" class="modal">
       <div class="modal-content">
-          <span class="close">&times;</span>
-          <div id="insideSearch">
-          </div>
+        <span class="close">&times;</span>
+        <div id="insideSearch">
+        </div>
       </div>
     </div>
   </div>
@@ -71,4 +80,5 @@
   </div>
   <script src="script.js"></script>
 </body>
+
 </html>

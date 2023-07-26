@@ -1,11 +1,10 @@
-
 body {
   font-family: Arial, sans-serif;
   font-family: 'IBM Plex Sans', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f4f3ee;
-  color:#233D4D;
+  color: #233D4D;
 }
 
 #main {
@@ -84,7 +83,7 @@ table, th, td {
 
 #header {
   font-family: 'IBM Plex Serif', serif;
-  position:fixed;
+  position: fixed;
   width: 100%;
   background-color: #233D4D;
   overflow: hidden;
@@ -93,14 +92,14 @@ table, th, td {
   color: #f4f3ee;
 }
 
-.changeWidth{
+.changeWidth {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 90%;
 }
 
-.top-item{
+.top-item {
   display: flex;
   align-items: center;
 }
@@ -112,18 +111,42 @@ table, th, td {
   margin: 5px;
 }
 
-.padder{
+.padder {
   border: none;
   border-radius: 5px;
   padding: 10px;
 }
 
 .win {
-  color:green
+  color: green
 }
+
 .loss {
   color: red;
 }
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  padding: 20px;
+  z-index: 9999;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  color: rgb(33, 140, 221);
+}
+
+.closePopup {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
 /* 
 .column {
   float: left;

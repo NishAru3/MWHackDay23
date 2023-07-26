@@ -1,6 +1,6 @@
 
 // Onload function
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   console.log("website loaded")
   updateLeaderboard();
 });
@@ -12,16 +12,16 @@ const closeMatchModalBtn = document.getElementsByClassName("close")[0];
 const closeSearchModalBtn = document.getElementsByClassName("close")[1];
 
 const searchModal = document.getElementById("searchModal");
-const openSearchModalBtn = document.getElementById("openSearchModalBtn"); 
+const openSearchModalBtn = document.getElementById("openSearchModalBtn");
 
 
 
 // Open the modal
-openMatchModalBtn.addEventListener("click", function() {
+openMatchModalBtn.addEventListener("click", function () {
   matchModal.style.display = "block";
 });
 
-openSearchModalBtn.addEventListener("click", function() {
+openSearchModalBtn.addEventListener("click", function () {
   searchModal.style.display = "block";
   console.log(users);
   console.log(matches);
@@ -29,21 +29,21 @@ openSearchModalBtn.addEventListener("click", function() {
 });
 
 // Close the modal when the close button or outside modal area is clicked
-closeMatchModalBtn.addEventListener("click", function() {
+closeMatchModalBtn.addEventListener("click", function () {
   matchModal.style.display = "none";
 });
-closeSearchModalBtn.addEventListener("click", function() {
+closeSearchModalBtn.addEventListener("click", function () {
   searchModal.style.display = "none";
 });
 
 
-window.addEventListener("click", function(event) {
+window.addEventListener("click", function (event) {
   if (event.target === matchModal) {
     matchModal.style.display = "none";
   }
   if (event.target === searchModal) {
     searchModal.style.display = "none";
-  } 
+  }
 });
 
 document.getElementById("addMatchBtn").addEventListener("click", addMatchButton);
@@ -55,7 +55,7 @@ function addMatchButton() {
   let s1 = document.getElementById("winner-score").value;
   let s2 = document.getElementById("loser-score").value;
 
-  addMatch(p1,p2,s1,s2);
+  addMatch(p1, p2, s1, s2);
 
   updateLeaderboard();
   matchModal.style.display = "none";
@@ -63,23 +63,23 @@ function addMatchButton() {
 
 function updateLeaderboard() {
   const userArr = getSortedPlayers();
-  userArr.map((user,index) => {
+  userArr.map((user, index) => {
     user["rank"] = index + 1
-    user["winratio"] =  Math.round(( user["wins"]/user["played"] + Number.EPSILON) * 100) / 100
+    user["winratio"] = Math.round((user["wins"] / user["played"] + Number.EPSILON) * 100) / 100
   });
   displayLeaderboard(userArr);
 }
 
-function displayLeaderboard(arr){
+function displayLeaderboard(arr) {
   table = ``;
   arr.forEach((player) => {
-      table += `<tr>`;
-      table += `<td>${player["rank"]}</td>`;
-      table += `<td>${player["name"]}</td>`;
-      table += `<td>${player["wins"]}</td>`;
-      table += `<td>${player["played"]}</td>`;
-      table += `<td>${player["winratio"]}</td>`;
-      table += `</tr>`;
+    table += `<tr>`;
+    table += `<td>${player["rank"]}</td>`;
+    table += `<td>${player["name"]}</td>`;
+    table += `<td>${player["wins"]}</td>`;
+    table += `<td>${player["played"]}</td>`;
+    table += `<td>${player["winratio"]}</td>`;
+    table += `</tr>`;
   });
   document.getElementById("leaderbody").innerHTML = table;
 }
@@ -96,15 +96,15 @@ function fillSearchModal() {
   } else {
     const userArr = getSortedPlayers();
     var info = null;
-    userArr.forEach((user,index) => {
+    userArr.forEach((user, index) => {
       if (user["name"] == name) {
         info = user
         info["rank"] = index + 1
-        info["winratio"] =  Math.round(( user["wins"]/user["played"] + Number.EPSILON) * 100) / 100
+        info["winratio"] = Math.round((user["wins"] / user["played"] + Number.EPSILON) * 100) / 100
       }
     });
-    output += `<h1>Rank ${info["rank"]+". "+name}</h1>`
-    info["matches"].forEach((match,index) => {
+    output += `<h1>Rank ${info["rank"] + ". " + name}</h1>`
+    info["matches"].forEach((match, index) => {
       output += `<div class="padder">`
       if (matches[match]["winner"] == name) {
         output += `<h4><span class="win">WON: </span>`
@@ -130,12 +130,13 @@ function getUsers() {
   console.log(users)
 }
 
+// sory players by highest win ratio
 function getSortedPlayers() {
   let outputArr = []
   for (var key in users) {
     outputArr.push(users[key]);
   }
-  outputArr.sort(function(a, b) {
+  outputArr.sort(function (a, b) {
     var x = a["wins"];
     var y = b["wins"];
     return ((x > y) ? -1 : 1);
@@ -143,7 +144,7 @@ function getSortedPlayers() {
   return outputArr;
 }
 
-function addMatch(wName, lName, wScore,lScore){
+function addMatch(wName, lName, wScore, lScore) {
 
   if (wName == lName || wName == "" || lName == "") {
     return;
@@ -176,7 +177,7 @@ function findUser(name) {
   return users[name];
 }
 
-function addUser(name){
+function addUser(name) {
   users[name] = {
     "name": name,
     "wins": 0,
@@ -186,6 +187,49 @@ function addUser(name){
   }
 }
 
+document.getElementById("randomMatchBtn").addEventListener("click", function () {
+  const user = getCurrentUser();
+  const candidates = findSameWinPercentageUsers(user);
+
+  if (candidates.length === 0) {
+    alert("No matching win percentage players found!");
+  } else {
+    const randomIndex = Math.floor(Math.random() * candidates.length);
+    const randomPlayer = candidates[randomIndex];
+    showRandomPartnerPopup(randomPlayer.name)
+  }
+});
+
+function getCurrentUser() {
+  const playerName = prompt("Enter your name:"); // Prompt the user to enter their name
+  return findUser(playerName);
+}
+
+function findSameWinPercentageUsers(user) {
+  const candidates = getSortedPlayers().filter(player => player.winratio === user.winratio && player.name !== user.name);
+  return candidates;
+}
+
+function showRandomPartnerPopup(name) {
+  const popupBox = document.getElementById("popupBox");
+  const popupContent = document.getElementById("popupContent");
+  const closePopupBtn = document.querySelector(".closePopup");
+
+  popupContent.textContent = "The best opponent for you is: " + name;
+  popupBox.style.display = "block";
+
+  closePopupBtn.addEventListener("click", function () {
+    popupBox.style.display = "none";
+  });
+
+  window.addEventListener("click", function (event) {
+    if (event.target === popupBox) {
+      popupBox.style.display = "none";
+    }
+  });
+}
+
+
 // DATABASE
 
 // var users = {
@@ -193,68 +237,68 @@ function addUser(name){
 
 var users = {
   "Nishanth": {
-      "name": "Nishanth",
-      "wins": 3,
-      "played": 3,
-      "dep": "EDG",
-      "matches": [
-          "3c49e1da-e7d7-4354-882e-081fb3e94d8d",
-          "8308bb35-5855-45ca-b823-05e0abf9d231",
-          "3604629d-3ce5-4253-b0a9-64058dcfec88"
-      ],
-      "rank": 1,
-      "winratio": 1
+    "name": "Nishanth",
+    "wins": 3,
+    "played": 3,
+    "dep": "EDG",
+    "matches": [
+      "3c49e1da-e7d7-4354-882e-081fb3e94d8d",
+      "8308bb35-5855-45ca-b823-05e0abf9d231",
+      "3604629d-3ce5-4253-b0a9-64058dcfec88"
+    ],
+    "rank": 1,
+    "winratio": 1
   },
   "Siddhant": {
-      "name": "Siddhant",
-      "wins": 2,
-      "played": 4,
-      "dep": "EDG",
-      "matches": [
-          "3c49e1da-e7d7-4354-882e-081fb3e94d8d",
-          "8308bb35-5855-45ca-b823-05e0abf9d231",
-          "3e69daf0-1879-4c30-ae00-1f935b2eddbc",
-          "dc8ca29d-27d1-40ea-92f2-b92330e048a2"
-      ],
-      "rank": 2,
-      "winratio": 0.5
+    "name": "Siddhant",
+    "wins": 2,
+    "played": 4,
+    "dep": "EDG",
+    "matches": [
+      "3c49e1da-e7d7-4354-882e-081fb3e94d8d",
+      "8308bb35-5855-45ca-b823-05e0abf9d231",
+      "3e69daf0-1879-4c30-ae00-1f935b2eddbc",
+      "dc8ca29d-27d1-40ea-92f2-b92330e048a2"
+    ],
+    "rank": 2,
+    "winratio": 0.5
   },
   "Satvik": {
-      "name": "Satvik",
-      "wins": 1,
-      "played": 5,
-      "dep": "EDG",
-      "matches": [
-          "3e69daf0-1879-4c30-ae00-1f935b2eddbc",
-          "dc8ca29d-27d1-40ea-92f2-b92330e048a2",
-          "3604629d-3ce5-4253-b0a9-64058dcfec88",
-          "ce4af0f8-ce8a-49bc-9870-f98894b3f741",
-          "843da9d0-7042-426e-bf32-d913aa5582d9"
-      ],
-      "rank": 3,
-      "winratio": 0.2
+    "name": "Satvik",
+    "wins": 1,
+    "played": 5,
+    "dep": "EDG",
+    "matches": [
+      "3e69daf0-1879-4c30-ae00-1f935b2eddbc",
+      "dc8ca29d-27d1-40ea-92f2-b92330e048a2",
+      "3604629d-3ce5-4253-b0a9-64058dcfec88",
+      "ce4af0f8-ce8a-49bc-9870-f98894b3f741",
+      "843da9d0-7042-426e-bf32-d913aa5582d9"
+    ],
+    "rank": 3,
+    "winratio": 0.2
   },
   "Chen": {
-      "name": "Chen",
-      "wins": 0,
-      "played": 1,
-      "dep": "EDG",
-      "matches": [
-          "ce4af0f8-ce8a-49bc-9870-f98894b3f741"
-      ],
-      "rank": 5,
-      "winratio": 0
+    "name": "Chen",
+    "wins": 0,
+    "played": 1,
+    "dep": "EDG",
+    "matches": [
+      "ce4af0f8-ce8a-49bc-9870-f98894b3f741"
+    ],
+    "rank": 5,
+    "winratio": 0
   },
   "Kunal": {
-      "name": "Kunal",
-      "wins": 1,
-      "played": 1,
-      "dep": "EDG",
-      "matches": [
-          "843da9d0-7042-426e-bf32-d913aa5582d9"
-      ],
-      "rank": 4,
-      "winratio": 1
+    "name": "Kunal",
+    "wins": 1,
+    "played": 1,
+    "dep": "EDG",
+    "matches": [
+      "843da9d0-7042-426e-bf32-d913aa5582d9"
+    ],
+    "rank": 4,
+    "winratio": 1
   }
 }
 
@@ -262,45 +306,45 @@ var users = {
 
 var matches = {
   "3c49e1da-e7d7-4354-882e-081fb3e94d8d": {
-      "winner": "Nishanth",
-      "loser": "Siddhant",
-      "wScore": "21",
-      "lScore": "6"
+    "winner": "Nishanth",
+    "loser": "Siddhant",
+    "wScore": "21",
+    "lScore": "6"
   },
   "8308bb35-5855-45ca-b823-05e0abf9d231": {
-      "winner": "Nishanth",
-      "loser": "Siddhant",
-      "wScore": "21",
-      "lScore": "15"
+    "winner": "Nishanth",
+    "loser": "Siddhant",
+    "wScore": "21",
+    "lScore": "15"
   },
   "3e69daf0-1879-4c30-ae00-1f935b2eddbc": {
-      "winner": "Siddhant",
-      "loser": "Satvik",
-      "wScore": "21",
-      "lScore": "18"
+    "winner": "Siddhant",
+    "loser": "Satvik",
+    "wScore": "21",
+    "lScore": "18"
   },
   "dc8ca29d-27d1-40ea-92f2-b92330e048a2": {
-      "winner": "Siddhant",
-      "loser": "Satvik",
-      "wScore": "21",
-      "lScore": "16"
+    "winner": "Siddhant",
+    "loser": "Satvik",
+    "wScore": "21",
+    "lScore": "16"
   },
   "3604629d-3ce5-4253-b0a9-64058dcfec88": {
-      "winner": "Nishanth",
-      "loser": "Satvik",
-      "wScore": "21",
-      "lScore": "5"
+    "winner": "Nishanth",
+    "loser": "Satvik",
+    "wScore": "21",
+    "lScore": "5"
   },
   "ce4af0f8-ce8a-49bc-9870-f98894b3f741": {
-      "winner": "Satvik",
-      "loser": "Chen",
-      "wScore": "21",
-      "lScore": "17"
+    "winner": "Satvik",
+    "loser": "Chen",
+    "wScore": "21",
+    "lScore": "17"
   },
   "843da9d0-7042-426e-bf32-d913aa5582d9": {
-      "winner": "Kunal",
-      "loser": "Satvik",
-      "wScore": "21",
-      "lScore": "14"
+    "winner": "Kunal",
+    "loser": "Satvik",
+    "wScore": "21",
+    "lScore": "14"
   }
 }
