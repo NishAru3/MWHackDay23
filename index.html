@@ -1,77 +1,120 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Elements with Table and Modal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <button class="model-style" id="openModalButton">Open Modal</button>
+
+        <div class="centered">
+            <input type="text" id="textField" placeholder="Enter text here">
+            <button id="submitButton">Submit</button>
+        </div>
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Occupation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>30</td>
+                    <td>Engineer</td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>28</td>
+                    <td>Designer</td>
+                </tr>
+                <tr>
+                    <td>Mike Johnson</td>
+                    <td>35</td>
+                    <td>Manager</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Modal Title</h2>
+            <input type="text" placeholder="Player 1 Name">
+            <input type="text" placeholder="Player 1 Score">
+            <input type="text" placeholder="Player 2 Name">
+            <input type="text" placeholder="Player 2 Score">
+            <button id="modalSubmitButton">Submit</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website Title</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Elements with Modal</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="row">
-        <div class="column">
-            <div class="container">
-                <input type="text" placeholder="Input 1">
-                <input type="text" placeholder="Input 2">
-                <input type="text" placeholder="Input 3">
-                <input type="text" placeholder="Input 4">
-                <button>Submit</button>
-              </div>
+    <div class="top-right">
+        <button id="openModalButton">Add Score</button>
+    </div>
+    <div class="container">
+        <div class="centered">
+            <input type="text" id="textField" placeholder="Search Player">
+            <button id="submitButton">Search</button>
         </div>
-        <div class="column">
-            <div class="container">
-                <div class="inputs">
-                  <input type="text" placeholder="Input 1">
-                  <input type="text" placeholder="Input 2">
-                  <button id="generateButton">Generate Table</button>
-                </div>
-                <table id="dataTable">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Name</th>
-                      <th>Age</th>
-                      <th>Email</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <!-- Random data will be added dynamically using JavaScript -->
-                  </tbody>
-                </table>
-              </div>
-        </div>
-        <div class="column">
-            <div class="container">
-                <h1>Leaderboard</h1>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Rank</th>
-                      <th>Name</th>
-                      <th>Score</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>John Doe</td>
-                      <td>1000</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Jane Smith</td>
-                      <td>900</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>Mike Johnson</td>
-                      <td>800</td>
-                    </tr>
-                    <!-- Add more rows for additional leaderboard entries -->
-                  </tbody>
-                </table>
-              </div>
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Occupation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>30</td>
+                    <td>Engineer</td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>28</td>
+                    <td>Designer</td>
+                </tr>
+                <tr>
+                    <td>Mike Johnson</td>
+                    <td>35</td>
+                    <td>Manager</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Modal Title</h2>
+            <input type="text" placeholder="Player 1 Name">
+            <input type="text" placeholder="Player 1 Score">
+            <input type="text" placeholder="Player 2 Name">
+            <input type="text" placeholder="Player 2 Score">
+            <button id="modalSubmitButton">Submit</button>
         </div>
     </div>
-  <script src="script.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
