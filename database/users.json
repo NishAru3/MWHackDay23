@@ -1,0 +1,33 @@
+
+{
+    "6e893d2b-97f1-43d4-86a6-3e744a4854ee": {
+        "name": "John Cafe",
+        "wins": 0,
+        "played": 2,
+        "dep": "EDG",
+        "matches": [
+            "match1", "match2"
+        ]
+    },
+    "7df60458-11e3-4eec-b16b-7727f82c751c": {
+        "name": "Laura What",
+        "wins": 1,
+        "played": 2,
+        "dep": "EDG",
+        "matches": [
+            "match1", "match2"
+        ]
+    },
+    "43fd0181-b526-4b36-93be-f109ddcc70b9": {
+        "name": "Kanye North",
+        "wins": 2,
+        "played": 2,
+        "dep": "EDG",
+        "matches": [
+            "match1", "match2"
+        ]
+    }
+}
+
+
+

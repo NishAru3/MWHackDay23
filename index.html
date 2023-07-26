@@ -1,120 +1,74 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centered Elements with Table and Modal</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <button class="model-style" id="openModalButton">Open Modal</button>
-
-        <div class="centered">
-            <input type="text" id="textField" placeholder="Enter text here">
-            <button id="submitButton">Submit</button>
-        </div>
-        <table id="dataTable">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Age</th>
-                    <th>Occupation</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>John Doe</td>
-                    <td>30</td>
-                    <td>Engineer</td>
-                </tr>
-                <tr>
-                    <td>Jane Smith</td>
-                    <td>28</td>
-                    <td>Designer</td>
-                </tr>
-                <tr>
-                    <td>Mike Johnson</td>
-                    <td>35</td>
-                    <td>Manager</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Modal Title</h2>
-            <input type="text" placeholder="Player 1 Name">
-            <input type="text" placeholder="Player 1 Score">
-            <input type="text" placeholder="Player 2 Name">
-            <input type="text" placeholder="Player 2 Score">
-            <button id="modalSubmitButton">Submit</button>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centered Elements with Modal</title>
+    <title>MW Table Tennis Co.</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;1,100&family=IBM+Plex+Serif&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="top-right">
-        <button id="openModalButton">Add Score</button>
+  <div id="header">
+    <div class="changeWidth">
+      <h1>
+        MW Table Tennis Co.
+      </h1>
+      <div class="top-item">
+        <button class="button" id="openMatchModalBtn">Add Match</button>
+      </div>
     </div>
+  </div>
+  <div id="main">
     <div class="container">
-        <div class="centered">
-            <input type="text" id="textField" placeholder="Search Player">
-            <button id="submitButton">Search</button>
-        </div>
-        <table id="dataTable">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Age</th>
-                    <th>Occupation</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>John Doe</td>
-                    <td>30</td>
-                    <td>Engineer</td>
-                </tr>
-                <tr>
-                    <td>Jane Smith</td>
-                    <td>28</td>
-                    <td>Designer</td>
-                </tr>
-                <tr>
-                    <td>Mike Johnson</td>
-                    <td>35</td>
-                    <td>Manager</td>
-                </tr>
-            </tbody>
-        </table>
+      <div class="centered">
+          <input type="text" id="textField" placeholder="Search Player">
+          <button class="button" id="openSearchModalBtn">Search</button>
+      </div>
+      <table id="dataTable">
+          <thead>
+            <h1>Leaderboard</h1>
+            <tr>
+              <th>Rank</th>
+              <th>Name</th>
+              <th>Wins</th>
+              <th>Total</th>
+              <th>Win %</th>
+            </tr>
+          </thead>
+          <tbody id="leaderbody">
+              
+          </tbody>
+      </table>
     </div>
-
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Modal Title</h2>
-            <input type="text" placeholder="Player 1 Name">
-            <input type="text" placeholder="Player 1 Score">
-            <input type="text" placeholder="Player 2 Name">
-            <input type="text" placeholder="Player 2 Score">
-            <button id="modalSubmitButton">Submit</button>
-        </div>
+    <div id="matchModal" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Add Match</h2>
+          <div class="padder">
+            <input type="text" id="winner" placeholder="Winner Name">
+            <input type="text" id="winner-score" placeholder="Winner Score">
+          </div>
+          <div class="padder">
+            <input type="text" id="loser" placeholder="Loser Name">
+            <input type="text" id="loser-score" placeholder="Loser Score">
+          </div>
+          <button class="button" id="addMatchBtn">Submit</button>
+      </div>
     </div>
+    <div id="searchModal" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <div id="insideSearch">
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div id="footer">
 
-    <script src="script.js"></script>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
